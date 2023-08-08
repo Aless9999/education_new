@@ -4,33 +4,24 @@ import java.util.*;
 
 public class Task2 {
     public static void main(String[] args) {
-        int[] array = new int[]{4,86, 76, 55, 6,5};
-        findDuplicateInArray(array);
+        int[] array = {4, 86, 76, 55, 6, 5};
+
+
+        System.out.println(findDuplicateInArray(array));
+
+
     }
 
-    private static void findDuplicateInArray(int[] array) {
-        int count = 0;
-        boolean result = false;
-        List<Integer> list = new ArrayList<>();
+    public static boolean findDuplicateInArray(int[] array) {
+        Set<Integer> integerSet = new HashSet<>();
         for (int element : array) {
-            list.add(element);
+            integerSet.add(element);
         }
-        for (int element : list) {
-            count = Collections.frequency(list, element);
-            if (count > 1) {
-                result = true;
-                System.out.println("Result: "+result);
-                System.out.println("Number " + element + " repeat " + count);
-
-                break;
-
-            }
+        if (array.length == integerSet.size()) {
+            return false;
+        } else {
+            return true;
         }
-        if (!result) {
-            System.out.println("Result: "+result);
-            System.out.println("No duplicates.");
-        }
-
     }
 }
 
